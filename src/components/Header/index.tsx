@@ -1,18 +1,28 @@
 import React from "react";
-import { View } from "react-native";
+import { MaterialIcons } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 
-import { Button, Container, ImgLogo } from "./styles";
-
-import logo from "../../assets/images/icon.png";
+import { Button, Container, Salutation, ContainerBtn } from "./styles";
 
 const Header: React.FC = ({ handleToggleList }) => {
   return (
     <Container>
-      <ImgLogo source={logo} />
-      <Button onPress={handleToggleList}>
-        <Feather name="list" size={24} color="white" />
-      </Button>
+      <Salutation>Good afternoon</Salutation>
+
+      <ContainerBtn>
+        <Button onPress={handleToggleList}>
+          <Feather name="bell" size={24} color="white" />
+        </Button>
+
+        <Button onPress={handleToggleList}>
+          <MaterialIcons name="history" size={25} color="white" />
+        </Button>
+
+        <Button onPress={handleToggleList}>
+          <Ionicons name="ios-settings-outline" size={25} color="white" />
+        </Button>
+      </ContainerBtn>
     </Container>
   );
 };

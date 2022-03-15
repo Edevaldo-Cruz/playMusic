@@ -5,11 +5,21 @@ export const Container = styled.View`
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
-  margin: 0 10px;
+  margin: 16px 24px;
 `;
 
-export const ImgLogo = styled.Image`
-  width: 43px;
-  height: 48px;
+export const ContainerBtn = styled.View`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
 `;
-export const Button = styled.TouchableOpacity``;
+
+export const Salutation = styled.Text`
+  font-size: 24;
+  font-weight: 900;
+  color: #ffffff;
+`;
+export const Button = styled.TouchableOpacity`
+  margin: 0 8px;
+`;

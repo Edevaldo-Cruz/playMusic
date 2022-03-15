@@ -4,9 +4,13 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import ActionSheet from "react-native-actions-sheet";
 
 import Header from "../../components/Header";
+
 import AudioPlayer from "../../components/AudioPlayer";
 import AboutAlbum from "../../components/AboutAlbum";
 import ListAudio from "../../components/ListAudio";
+import SuggestionCard from "../../components/SuggestionCard";
+import RecentlyPlayed from "../../components/RecentlyPlayed";
+import HitsOfYesterday from "../../components/HitsOfYesterday";
 
 const Player: React.FC = () => {
   const actionSheetRef = createRef();
@@ -19,15 +23,16 @@ const Player: React.FC = () => {
   return (
     <SafeAreaView>
       <Header handleToggleList={handleToggleList} />
-      <ScrollView>
-        <AboutAlbum />
-        <AudioPlayer />
-      </ScrollView>
+      <SuggestionCard />
+      <RecentlyPlayed />
+      <HitsOfYesterday />
+      <AboutAlbum />
+      <AudioPlayer />
+
       <ActionSheet
         ref={actionSheetRef}
         containerStyle={{
           height: Dimensions.get("screen").height - 150,
-          padding: 20,
         }}
       >
         <ListAudio />
