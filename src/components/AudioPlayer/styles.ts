@@ -1,26 +1,57 @@
 import styled from "styled-components/native";
-import { Dimensions } from "react-native";
-
-const width = Dimensions.get("screen").width - 40;
 
 export const Container = styled.View`
-  justify-content: center;
-  align-items: center;
-  padding-top: 80px;
+  flex: 1;
+  position: absolute;
+  top: 82%;
+  left: 0;
+  right: 128px;
+  bottom: 2%;
+
+  width: 359px;
+  height: 60px;
+  margin: 10px 16px;
+  background-color: #979797;
+
+  border-radius: 10px;
+  padding-right: 10px;
 `;
 
-export const ButtonContainer = styled.View`
+export const Content = styled.View`
   flex-direction: row;
-  width: ${width};
+  align-items: center;
   justify-content: space-between;
+`;
+
+export const Info = styled.View`
+  flex-direction: row;
   align-items: center;
 `;
-export const ButtonAction = styled.TouchableOpacity`
-  width: ${(props) => (props.primary ? 85 : 66)}px;
-  height: ${(props) => (props.primary ? 85 : 66)}px;
-  background: ${(props) => (props.primary ? "#F43F30" : "#FE9541")};
-  border-radius: ${(props) => (props.primary ? 42 : 33)}px;
 
-  justify-content: center;
-  align-items: center;
+export const ButtonAction = styled.TouchableOpacity``;
+
+export const ContainerText = styled.View`
+  width: 65%;
+  height: 40%;
+  margin-right: 8px;
+  margin-left: 8px;
+`;
+
+export const Title = styled.Text`
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+`;
+
+export const Author = styled.Text`
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 500;
+`;
+
+export const Album = styled.Image`
+  width: 60px;
+  height: 60px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
 `;

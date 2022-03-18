@@ -1,7 +1,5 @@
 import React from "react";
-import { MaterialIcons } from "@expo/vector-icons";
-import { Ionicons } from "@expo/vector-icons";
-import { Feather } from "@expo/vector-icons";
+import { MaterialIcons, Ionicons, Feather } from "@expo/vector-icons";
 
 import { Button, Container, Salutation, ContainerBtn } from "./styles";
 

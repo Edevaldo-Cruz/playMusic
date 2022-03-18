@@ -5,7 +5,8 @@ export const Container = styled.View`
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
-  margin: 16px 24px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 `;
 
 export const ContainerBtn = styled.View`
@@ -17,7 +18,7 @@ export const ContainerBtn = styled.View`
 
 export const Salutation = styled.Text`
   font-size: 24;
-  font-weight: 900;
+  font-weight: bold;
   color: #ffffff;
 `;
 export const Button = styled.TouchableOpacity`

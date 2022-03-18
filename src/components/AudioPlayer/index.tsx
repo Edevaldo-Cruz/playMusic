@@ -1,25 +1,52 @@
 import React from "react";
-import { Feather } from "@expo/vector-icons";
+import { MaterialIcons, AntDesign } from "@expo/vector-icons";
 
-import { Container, ButtonAction, ButtonContainer } from "./styles";
+import {
+  Container,
+  ButtonAction,
+  Content,
+  Info,
+  Album,
+  ContainerText,
+  Title,
+  Author,
+} from "./styles";
 import { useAudio } from "../../hooks/audio";
 
 const AudioPlayer: React.FC = () => {
-  const { isPlay, handleToggleAudio } = useAudio();
+  const { isPlay, handleToggleAudio, currentAudioInfo } = useAudio();
 
   return (
     <Container>
-      <ButtonContainer>
-        <ButtonAction>
-          <Feather name="chevron-left" size={24} color="white" />
+      <Content>
+        <Info>
+          <Album
+            source={{
+              uri:
+                currentAudioInfo?.imageSource ||
+                "https://complianz.io/wp-content/uploads/2019/03/placeholder-300x202.jpg",
+            }}
+          />
+          <ContainerText>
+            <Title>{currentAudioInfo?.title || "Selecione um audio"}</Title>
+            <Author>{currentAudioInfo?.author || "..."}</Author>
+          </ContainerText>
+        </Info>
+        <ButtonAction primary onPress={handleToggleAudio}>
+          <AntDesign
+            name={isPlay ? "hearto" : "heart"}
+            size={20}
+            color="black"
+          />
         </ButtonAction>
         <ButtonAction primary onPress={handleToggleAudio}>
-          <Feather name={isPlay ? "pause" : "play"} size={32} color="white" />
+          <MaterialIcons
+            name={isPlay ? "pause" : "play-arrow"}
+            size={32}
+            color="black"
+          />
         </ButtonAction>
-        <ButtonAction>
-          <Feather name="chevron-right" size={24} color="white" />
-        </ButtonAction>
-      </ButtonContainer>
+      </Content>
     </Container>
   );
 };

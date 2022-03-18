@@ -1,8 +1,7 @@
 import styled from "styled-components/native";
 
 export const Container = styled.View`
-  margin-left: 24px;
-  margin-bottom: 20px;
+  margin: 10px 16px;
 `;
 
 export const Title = styled.Text`
@@ -17,7 +16,7 @@ export const Title = styled.Text`
 `;
 
 export const ContainerArtists = styled.ScrollView`
-  margin-bottom: 20px;
+  margin-bottom: 8px;
 `;
 
 export const ContainerImg = styled.TouchableOpacity`

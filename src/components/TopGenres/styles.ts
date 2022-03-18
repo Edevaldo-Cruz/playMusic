@@ -2,7 +2,9 @@ import styled from "styled-components/native";
 
 export const Container = styled.View`
   flex-direction: row;
+  height: 100px;
   margin: 5px 16px;
+  justify-content: space-around;
 `;
 
 export const ContainerCard = styled.TouchableOpacity`
@@ -18,16 +20,19 @@ export const ContainerCard = styled.TouchableOpacity`
 `;
 
 export const TitleCard = styled.Text`
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: bold;
   color: #ffffff;
   width: 80%;
   padding-left: 10px;
+  margin-top: 27px;
+  margin-bottom: 14px;
 `;
 
 export const ImgCard = styled.Image`
-  width: 65px;
-  height: 65px;
+  width: 165px;
+  height: 100px;
+
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px;
 `;

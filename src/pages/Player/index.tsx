@@ -1,12 +1,14 @@
 import React, { createRef } from "react";
-import { ScrollView, View, Text, Dimensions } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import { ScrollView, Dimensions } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ActionSheet from "react-native-actions-sheet";
+import { LinearGradient } from "expo-linear-gradient";
+
+import { AudioProvider } from "../../hooks/audio";
 
 import Header from "../../components/Header";
-
 import AudioPlayer from "../../components/AudioPlayer";
-import AboutAlbum from "../../components/AboutAlbum";
 import ListAudio from "../../components/ListAudio";
 import SuggestionCard from "../../components/SuggestionCard";
 import RecentlyPlayed from "../../components/RecentlyPlayed";
@@ -21,23 +23,40 @@ const Player: React.FC = () => {
   };
 
   return (
-    <SafeAreaView>
-      <Header handleToggleList={handleToggleList} />
-      <SuggestionCard />
-      <RecentlyPlayed />
-      <HitsOfYesterday />
-      <AboutAlbum />
-      <AudioPlayer />
+    <>
+      <ScrollView>
+        <LinearGradient
+          colors={["#4B208D", "#000000"]}
+          start={[0.005, 0.03]}
+          end={[0.4, 0.24]}
+          style={{ flex: 1 }}
+        >
+          <StatusBar style="light" />
+          <SafeAreaView>
+            <Header handleToggleList={handleToggleList} />
+            <SuggestionCard />
+            <RecentlyPlayed />
+            <HitsOfYesterday />
+            <RecentlyPlayed />
+            <HitsOfYesterday />
+            <RecentlyPlayed />
+            <HitsOfYesterday />
+          </SafeAreaView>
+        </LinearGradient>
+      </ScrollView>
+      <AudioProvider>
+        <AudioPlayer />
 
-      <ActionSheet
-        ref={actionSheetRef}
-        containerStyle={{
-          height: Dimensions.get("screen").height - 150,
-        }}
-      >
-        <ListAudio />
-      </ActionSheet>
-    </SafeAreaView>
+        <ActionSheet
+          ref={actionSheetRef}
+          containerStyle={{
+            height: Dimensions.get("screen").height - 150,
+          }}
+        >
+          <ListAudio />
+        </ActionSheet>
+      </AudioProvider>
+    </>
   );
 };
 
