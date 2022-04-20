@@ -48,8 +48,6 @@ const AudioProvider: React.FC = ({ children }) => {
       if (!result.data.playlist) {
         return;
       }
-
-      console.log(result.data.playlist);
       setPlaylist(result.data.playlist);
     }
     loadAudio();

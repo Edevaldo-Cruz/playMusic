@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import {
   Container,
@@ -17,7 +17,7 @@ import img5 from "../../assets/images/recentlyPlayed5.png";
 import img6 from "../../assets/images/recentlyPlayed6.png";
 
 const RecentlyPlayed: React.FC = () => {
-  const list = [
+  const item = [
     {
       artist: img1,
       text: "Tereza",
@@ -43,6 +43,17 @@ const RecentlyPlayed: React.FC = () => {
       text: "You & Me",
     },
   ];
+
+  var list = [];
+  var items = [];
+
+  for (var i = 0; i < 12; i++) {
+    var newOrder = item[Math.floor(Math.random() * item.length)];
+    items.push(newOrder);
+    list = [...new Set(items)];
+  }
+  console.log(list);
+
   return (
     <Container>
       <Title>Recently Played</Title>

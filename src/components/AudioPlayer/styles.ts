@@ -30,7 +30,7 @@ export const Info = styled.View`
 
 export const ButtonAction = styled.TouchableOpacity``;
 
-export const ContainerText = styled.View`
+export const ContainerText = styled.TouchableOpacity`
   width: 65%;
   height: 40%;
   margin-right: 8px;

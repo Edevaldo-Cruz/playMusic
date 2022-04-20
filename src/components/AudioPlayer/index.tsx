@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { MaterialIcons, AntDesign } from "@expo/vector-icons";
 
 import {
@@ -13,9 +13,8 @@ import {
 } from "./styles";
 import { useAudio } from "../../hooks/audio";
 
-const AudioPlayer: React.FC = () => {
+const AudioPlayer: React.FC = ({ handleToggleList }) => {
   const { isPlay, handleToggleAudio, currentAudioInfo } = useAudio();
-
   return (
     <Container>
       <Content>
@@ -27,7 +26,7 @@ const AudioPlayer: React.FC = () => {
                 "https://complianz.io/wp-content/uploads/2019/03/placeholder-300x202.jpg",
             }}
           />
-          <ContainerText>
+          <ContainerText onPress={handleToggleList}>
             <Title>{currentAudioInfo?.title || "Selecione um audio"}</Title>
             <Author>{currentAudioInfo?.author || "..."}</Author>
           </ContainerText>

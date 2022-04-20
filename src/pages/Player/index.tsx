@@ -45,7 +45,7 @@ const Player: React.FC = () => {
         </LinearGradient>
       </ScrollView>
       <AudioProvider>
-        <AudioPlayer />
+        <AudioPlayer handleToggleList={handleToggleList} />
 
         <ActionSheet
           ref={actionSheetRef}

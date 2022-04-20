@@ -1,5 +1,10 @@
 import React from "react";
-import { FlatList, ScrollView, TouchableOpacity } from "react-native";
+import {
+  FlatList,
+  ScrollView,
+  Touchable,
+  TouchableOpacity,
+} from "react-native";
 import { useAudio } from "../../hooks/audio";
 
 import {
@@ -25,7 +30,7 @@ const ListAudio: React.FC = () => {
           />
           <ItemInfoContainer>
             <ItemInfoTitle>{item.title}</ItemInfoTitle>
-            <ItemInfoData>{item.date}</ItemInfoData>
+            <ItemInfoData>{item.author}</ItemInfoData>
           </ItemInfoContainer>
         </ItemContainer>
       </TouchableOpacity>
