@@ -43,14 +43,14 @@ const AudioProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     async function loadAudio() {
-      const result = await api.get("playlist");
+      const result = await api.get("/db.json");
 
-      if (!result.data) {
+      if (!result.data.playlist) {
         return;
       }
 
-      console.log(result.data);
-      setPlaylist(result.data);
+      console.log(result.data.playlist);
+      setPlaylist(result.data.playlist);
     }
     loadAudio();
   }, []);

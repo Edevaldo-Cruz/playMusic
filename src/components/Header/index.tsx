@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { MaterialIcons, Ionicons, Feather } from "@expo/vector-icons";
 
 import { Button, Container, Salutation, ContainerBtn } from "./styles";
