@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { MaterialIcons, Ionicons, Feather } from "@expo/vector-icons";
 
 import { Button, Container, Salutation, ContainerBtn } from "./styles";
 
 const Header: React.FC = ({ handleToggleList }) => {
+  let now = new Date();
+  let hour = now.getHours();
+
+  if (hour > 4 && hour < 12) {
+    var salutationText = "Bom dia";
+  } else if (hour > 11 && hour < 18) {
+    var salutationText = "Boa tarde";
+  } else {
+    var salutationText = "Boa noite";
+  }
+
   return (
     <Container>
-      <Salutation>Good afternoon</Salutation>
+      <Salutation>{salutationText}</Salutation>
 
       <ContainerBtn>
         <Button onPress={handleToggleList}>
