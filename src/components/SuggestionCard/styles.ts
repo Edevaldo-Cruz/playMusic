@@ -3,6 +3,7 @@ import styled from "styled-components/native";
 export const Container = styled.View`
   flex-direction: row;
   margin: 5px 16px;
+  justify-content: center;
 `;
 
 export const ContainerCard = styled.TouchableOpacity`

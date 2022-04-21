@@ -13,6 +13,7 @@ import ListAudio from "../../components/ListAudio";
 import SuggestionCard from "../../components/SuggestionCard";
 import RecentlyPlayed from "../../components/RecentlyPlayed";
 import HitsOfYesterday from "../../components/HitsOfYesterday";
+import SuggestionPodcast from "../../components/SuggestionPodcast";
 
 const Player: React.FC = () => {
   const actionSheetRef = createRef();
@@ -35,6 +36,7 @@ const Player: React.FC = () => {
           <SafeAreaView>
             <Header handleToggleList={handleToggleList} />
             <SuggestionCard />
+            <SuggestionPodcast />
             <RecentlyPlayed />
             <HitsOfYesterday />
             <RecentlyPlayed />

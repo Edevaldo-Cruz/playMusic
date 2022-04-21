@@ -14,6 +14,7 @@ import {
 import { useAudio } from "../../hooks/audio";
 
 const AudioPlayer: React.FC = ({ handleToggleList }) => {
+  const [like, setLike] = useState();
   const { isPlay, handleToggleAudio, currentAudioInfo } = useAudio();
   return (
     <Container>
@@ -31,12 +32,8 @@ const AudioPlayer: React.FC = ({ handleToggleList }) => {
             <Author>{currentAudioInfo?.author || "..."}</Author>
           </ContainerText>
         </Info>
-        <ButtonAction primary onPress={handleToggleAudio}>
-          <AntDesign
-            name={isPlay ? "hearto" : "heart"}
-            size={20}
-            color="black"
-          />
+        <ButtonAction primary onPress={() => setLike(!like)}>
+          <AntDesign name={like ? "hearto" : "heart"} size={20} color="black" />
         </ButtonAction>
         <ButtonAction primary onPress={handleToggleAudio}>
           <MaterialIcons
