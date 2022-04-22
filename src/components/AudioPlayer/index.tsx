@@ -15,7 +15,22 @@ import { useAudio } from "../../hooks/audio";
 
 const AudioPlayer: React.FC = ({ handleToggleList }) => {
   const [like, setLike] = useState();
-  const { isPlay, handleToggleAudio, currentAudioInfo } = useAudio();
+  const { isPlay, handleToggleAudio, currentAudioInfo, playlist } = useAudio();
+
+  function next() {
+    setLike(!like);
+    let i = 0;
+    if (playlist) {
+      console.log(currentAudioInfo);
+      i = i + 1;
+      console.log("***********");
+      console.log(currentAudioInfo);
+
+      console.log("nao foi");
+      console.log(currentAudioInfo);
+    }
+  }
+
   return (
     <Container>
       <Content>
@@ -32,8 +47,8 @@ const AudioPlayer: React.FC = ({ handleToggleList }) => {
             <Author>{currentAudioInfo?.author || "..."}</Author>
           </ContainerText>
         </Info>
-        <ButtonAction primary onPress={() => setLike(!like)}>
-          <AntDesign name={like ? "hearto" : "heart"} size={20} color="black" />
+        <ButtonAction primary onPress={next}>
+          <AntDesign name={like ? "heart" : "hearto"} size={20} color="black" />
         </ButtonAction>
         <ButtonAction primary onPress={handleToggleAudio}>
           <MaterialIcons

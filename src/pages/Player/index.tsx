@@ -1,6 +1,6 @@
 import React, { createRef } from "react";
 import { StatusBar } from "expo-status-bar";
-import { ScrollView, Dimensions } from "react-native";
+import { ScrollView, Dimensions, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ActionSheet from "react-native-actions-sheet";
 import { LinearGradient } from "expo-linear-gradient";
@@ -24,12 +24,12 @@ const Player: React.FC = () => {
   };
 
   return (
-    <>
+    <View>
       <ScrollView>
         <LinearGradient
-          colors={["#4B208D", "#000000"]}
-          start={[0.005, 0.03]}
-          end={[0.4, 0.24]}
+          colors={["#3B14AF", "#121212"]}
+          start={[0.092321, 0.02]}
+          end={[0.4, 0.259]}
           style={{ flex: 1 }}
         >
           <StatusBar style="light" />
@@ -40,25 +40,24 @@ const Player: React.FC = () => {
             <RecentlyPlayed />
             <HitsOfYesterday />
             <RecentlyPlayed />
-            <HitsOfYesterday />
             <RecentlyPlayed />
-            <HitsOfYesterday />
+            <View style={{ width: "100%", height: 150 }} />
           </SafeAreaView>
         </LinearGradient>
       </ScrollView>
       <AudioProvider>
         <AudioPlayer handleToggleList={handleToggleList} />
-
         <ActionSheet
           ref={actionSheetRef}
           containerStyle={{
-            height: Dimensions.get("screen").height - 150,
+            height: Dimensions.get("screen").height,
+            backgroundColor: "#121212",
           }}
         >
           <ListAudio />
         </ActionSheet>
       </AudioProvider>
-    </>
+    </View>
   );
 };
 

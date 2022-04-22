@@ -147,7 +147,6 @@ const RecentlyPlayed: React.FC = () => {
     items.push(newOrder);
     list = [...new Set(items)];
   }
-  console.log(list);
 
   return (
     <Container>

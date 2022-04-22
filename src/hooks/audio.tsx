@@ -27,7 +27,6 @@ const AudioProvider: React.FC = ({ children }) => {
       setIsPlay(true);
       await sound.playAsync();
     }
-
     return;
   };
 
@@ -50,6 +49,7 @@ const AudioProvider: React.FC = ({ children }) => {
       }
       setPlaylist(result.data.playlist);
     }
+
     loadAudio();
   }, []);
 
@@ -61,6 +61,7 @@ const AudioProvider: React.FC = ({ children }) => {
         handleToggleAudio,
         playSong,
         isPlay,
+        currentAudio,
       }}
     >
       {children}

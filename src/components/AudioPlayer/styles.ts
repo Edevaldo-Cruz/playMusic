@@ -12,7 +12,7 @@ export const Container = styled.View`
   width: 359px;
   height: 60px;
   margin: 10px 16px;
-  background-color: #979797;
+  background-color: #593239;
 
   border-radius: 10px;
   padding-right: 10px;
@@ -38,12 +38,11 @@ export const ContainerText = styled.TouchableOpacity`
   height: 40%;
   margin-right: 4px;
   margin-left: 4px;
-  background-color: aqua;
 `;
 
 export const Title = styled.Text`
   color: #ffffff;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
 `;
 
@@ -54,8 +53,6 @@ export const Author = styled.Text`
 `;
 
 export const Album = styled.Image`
-  width: 45px;
-  height: 45px;
-  border-bottom-left-radius: 5px;
-  border-top-left-radius: 5px;
+  width: 35px;
+  height: 35px;
 `;

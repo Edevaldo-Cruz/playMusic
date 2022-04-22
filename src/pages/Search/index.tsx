@@ -3,11 +3,6 @@ import { ScrollView } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
 import { MaterialIcons } from "@expo/vector-icons";
-
-import AudioPlayer from "../../components/AudioPlayer";
-import Header from "../../components/Header";
-import { AudioProvider } from "../../hooks/audio";
-
 import { Container, InputView, InputSearch, ContainerInput } from "./styles";
 import TopGenres from "../../components/TopGenres";
 
@@ -16,7 +11,6 @@ const YourLibrary: React.FC = () => {
     <Container>
       <ScrollView>
         <StatusBar style="light" />
-        <Header />
         <ContainerInput>
           <InputView>
             <MaterialIcons name={"search"} size={35} color={"white"} />
@@ -29,10 +23,6 @@ const YourLibrary: React.FC = () => {
 
         <TopGenres />
       </ScrollView>
-
-      <AudioProvider>
-        <AudioPlayer />
-      </AudioProvider>
     </Container>
   );
 };
