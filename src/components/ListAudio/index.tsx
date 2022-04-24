@@ -1,15 +1,14 @@
 import React, { useState, createRef } from "react";
 import ActionSheet from "react-native-actions-sheet";
 import { TouchableOpacity, Dimensions } from "react-native";
-import { useAudio } from "../../hooks/audio";
 
+import { useAudio } from "../../hooks/audio";
 import {
   AntDesign,
   Entypo,
   FontAwesome,
   MaterialIcons,
 } from "@expo/vector-icons";
-
 import {
   Container,
   HeaderModal,
@@ -27,26 +26,26 @@ import {
 } from "./styles";
 import ModalList from "../ModalList";
 
-const ListAudio: React.FC = () => {
-  const { playlist, playSong, currentAudioInfo, isPlay } = useAudio();
+const ListAudio: React.FC = ({ handleToggleList }) => {
+  const { currentAudioInfo, isPlay, handleToggleAudio } = useAudio();
   const [like, setLike] = useState(false);
   const actionSheetRef = createRef();
 
-  const handleToggleList = () => {
+  const handleToggleModalList = () => {
     actionSheetRef.current?.setModalVisible();
   };
 
   return (
     <Container>
       <HeaderModal>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleToggleList}>
           <AntDesign name="down" size={24} color="white" />
         </TouchableOpacity>
         <ContainerTextHeader>
           <TitleHeader> TOCANDO DA SUA BIBLIOTECA</TitleHeader>
           <SubTitleHeader> Musicas Curtidas</SubTitleHeader>
         </ContainerTextHeader>
-        <TouchableOpacity onPress={handleToggleList}>
+        <TouchableOpacity onPress={handleToggleModalList}>
           <Entypo name="dots-three-vertical" size={24} color="white" />
         </TouchableOpacity>
       </HeaderModal>
@@ -74,17 +73,17 @@ const ListAudio: React.FC = () => {
         <TouchableOpacity>
           <FontAwesome name="random" size={24} color="white" />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleToggleModalList}>
           <AntDesign name="stepbackward" size={24} color="white" />
         </TouchableOpacity>
-        <BtnPlayPause>
+        <BtnPlayPause primary onPress={handleToggleAudio}>
           <MaterialIcons
             name={isPlay ? "pause" : "play-arrow"}
             size={55}
             color="black"
           />
         </BtnPlayPause>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleToggleModalList}>
           <AntDesign name="stepforward" size={24} color="white" />
         </TouchableOpacity>
         <TouchableOpacity>
@@ -95,7 +94,7 @@ const ListAudio: React.FC = () => {
       <ActionSheet
         ref={actionSheetRef}
         containerStyle={{
-          height: Dimensions.get("screen").height,
+          height: Dimensions.get("screen").height - 130,
           backgroundColor: "#121212",
         }}
       >
@@ -106,6 +105,3 @@ const ListAudio: React.FC = () => {
 };
 
 export default ListAudio;
-function goBack(): void {
-  throw new Error("Function not implemented.");
-}

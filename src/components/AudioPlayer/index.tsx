@@ -12,27 +12,16 @@ import {
   Author,
 } from "./styles";
 import { useAudio } from "../../hooks/audio";
+import { View } from "react-native";
 
 const AudioPlayer: React.FC = ({ handleToggleList }) => {
   const [like, setLike] = useState();
   const { isPlay, handleToggleAudio, currentAudioInfo, playlist } = useAudio();
 
-  function next() {
-    setLike(!like);
-    let i = 0;
-    if (playlist) {
-      console.log(currentAudioInfo);
-      i = i + 1;
-      console.log("***********");
-      console.log(currentAudioInfo);
-
-      console.log("nao foi");
-      console.log(currentAudioInfo);
-    }
-  }
-
   return (
-    <Container>
+    <Container
+      style={{ backgroundColor: currentAudioInfo?.color || "#FFFFFF" }}
+    >
       <Content>
         <Info>
           <Album
@@ -43,11 +32,22 @@ const AudioPlayer: React.FC = ({ handleToggleList }) => {
             }}
           />
           <ContainerText onPress={handleToggleList}>
-            <Title>{currentAudioInfo?.title || "Selecione um audio"}</Title>
+            {(currentAudioInfo && (
+              <Title style={{ color: "#FFFFFF" }}>
+                {currentAudioInfo?.title}
+              </Title>
+            )) || (
+              <Title style={{ color: "#000000" }}>Selecione um audio</Title>
+            )}
+            {(currentAudioInfo && (
+              <Author style={{ color: "#FFFFFF" }}>
+                {currentAudioInfo?.author}
+              </Author>
+            )) || <Author style={{ color: "#000000" }}>...</Author>}
             <Author>{currentAudioInfo?.author || "..."}</Author>
           </ContainerText>
         </Info>
-        <ButtonAction primary onPress={next}>
+        <ButtonAction primary onPress={() => setLike(!like)}>
           <AntDesign name={like ? "heart" : "hearto"} size={20} color="black" />
         </ButtonAction>
         <ButtonAction primary onPress={handleToggleAudio}>

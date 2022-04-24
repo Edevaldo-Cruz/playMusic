@@ -150,7 +150,6 @@ const RecentlyPlayed: React.FC = () => {
 
   return (
     <Container>
-      <Title>Recently Played</Title>
       <ContainerArtists horizontal={true}>
         {list.map((list) => (
           <ContainerImg>

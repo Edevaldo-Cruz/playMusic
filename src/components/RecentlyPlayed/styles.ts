@@ -1,7 +1,8 @@
 import styled from "styled-components/native";
 
 export const Container = styled.View`
-  margin: 10px 10px 0 16px;
+  margin: 10px 16px;
+  margin-left: 6%;
 `;
 
 export const Title = styled.Text`
@@ -34,7 +35,7 @@ export const ArtistsName = styled.Text`
   height: 24px;
   font-style: normal;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 14px;
   line-height: 24px;
   color: white;
 `;

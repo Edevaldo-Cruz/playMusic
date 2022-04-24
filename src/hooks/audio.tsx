@@ -6,8 +6,9 @@ const AudioContext = createContext({});
 
 const AudioProvider: React.FC = ({ children }) => {
   const [currentAudio, setCurrentAudio] = useState(null);
-  const [currentAudioInfo, setCurrentAudioInfo] = useState();
   const [isPlay, setIsPlay] = useState(false);
+
+  const [currentAudioInfo, setCurrentAudioInfo] = useState(null);
 
   const [playlist, setPlaylist] = useState([]);
 

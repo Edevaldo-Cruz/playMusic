@@ -1,4 +1,4 @@
-import React, { createRef } from "react";
+import React, { createRef, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { ScrollView, Dimensions, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -6,6 +6,7 @@ import ActionSheet from "react-native-actions-sheet";
 import { LinearGradient } from "expo-linear-gradient";
 
 import { AudioProvider } from "../../hooks/audio";
+import { StandardTitle } from "./styles";
 
 import Header from "../../components/Header";
 import AudioPlayer from "../../components/AudioPlayer";
@@ -37,9 +38,13 @@ const Player: React.FC = () => {
             <Header handleToggleList={handleToggleList} />
             <SuggestionCard />
             <SuggestionPodcast />
+            <StandardTitle>Teste titulo</StandardTitle>
             <RecentlyPlayed />
+            <StandardTitle>Teste titulo</StandardTitle>
             <HitsOfYesterday />
+            <StandardTitle>Teste titulo</StandardTitle>
             <RecentlyPlayed />
+            <StandardTitle>Teste titulo</StandardTitle>
             <RecentlyPlayed />
             <View style={{ width: "100%", height: 150 }} />
           </SafeAreaView>
@@ -54,7 +59,7 @@ const Player: React.FC = () => {
             backgroundColor: "#121212",
           }}
         >
-          <ListAudio />
+          <ListAudio handleToggleList={handleToggleList} />
         </ActionSheet>
       </AudioProvider>
     </View>

@@ -2,7 +2,6 @@ import React from "react";
 
 import {
   Container,
-  Title,
   ContainerArtists,
   ContainerImg,
   ImgRecentlyPlayed,
@@ -45,7 +44,6 @@ const HitsOfYesterday: React.FC = () => {
   ];
   return (
     <Container>
-      <Title>Hits of yesterday and today</Title>
       <ContainerArtists horizontal={true}>
         {list.map((list) => (
           <ContainerImg>
