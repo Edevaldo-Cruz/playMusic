@@ -5,6 +5,33 @@ export const ContainerScrollView = styled.ScrollView`
   margin-right: 8%;
 `;
 
+export const HeaderModal = styled.View`
+  flex-direction: row;
+  padding: 20px 20px;
+  margin-top: 10%;
+  justify-content: space-between;
+`;
+
+export const ContainerTextHeader = styled.View`
+  flex: 1;
+  justify-content: center;
+`;
+
+export const TitleHeader = styled.Text`
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  opacity: 0.5;
+  text-align: center;
+`;
+
+export const SubTitleHeader = styled.Text`
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+`;
+
 export const ContainerMusicNow = styled.View`
   flex-direction: row;
   align-items: center;
@@ -51,14 +78,14 @@ export const ContainerText = styled.View`
 
 export const Separetor = styled.View`
   width: 100%;
-  height: 1;
+  height: 1px;
   background-color: #ccc;
 `;
 
 export const ContainerIcons = styled.View`
   flex-direction: row;
-  height: 130px;
-  margin-bottom: 65px;
+  height: 80px;
+
   justify-content: center;
   align-items: center;
   margin-left: 5%;

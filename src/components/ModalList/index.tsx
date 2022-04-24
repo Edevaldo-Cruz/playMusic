@@ -4,15 +4,18 @@ import { useAudio } from "../../hooks/audio";
 import {
   Entypo,
   SimpleLineIcons,
-  FontAwesome,
   AntDesign,
   MaterialIcons,
 } from "@expo/vector-icons";
 
 import {
+  HeaderModal,
+  ContainerTextHeader,
   ContainerScrollView,
   SubTitleAudio,
   ContainerMusicNow,
+  TitleHeader,
+  SubTitleHeader,
   TitleAudio,
   StandardTitle,
   ContainerText,
@@ -23,7 +26,7 @@ import {
   Separetor,
 } from "./styles";
 
-const ModalList: React.FC = () => {
+const ModalList: React.FC = ({ handleToggleModalList }) => {
   const { isPlay, handleToggleAudio, currentAudioInfo, playlist, playSong } =
     useAudio();
 
@@ -44,6 +47,15 @@ const ModalList: React.FC = () => {
 
   return (
     <>
+      <HeaderModal>
+        <TouchableOpacity onPress={handleToggleModalList}>
+          <AntDesign name="down" size={24} color="white" />
+        </TouchableOpacity>
+        <ContainerTextHeader>
+          <TitleHeader> TOCANDO DA SUA BIBLIOTECA</TitleHeader>
+          <SubTitleHeader> Musicas Curtidas</SubTitleHeader>
+        </ContainerTextHeader>
+      </HeaderModal>
       <ContainerScrollView>
         <StandardTitle>Tocando agora</StandardTitle>
         <ContainerMusicNow>
@@ -68,6 +80,7 @@ const ModalList: React.FC = () => {
           data={playlist}
           keyExtractor={(item) => item.id}
           renderItem={(item) => <RenderItem {...item} />}
+          showsVerticalScrollIndicator={false}
         />
       </ContainerScrollView>
       <Separetor />

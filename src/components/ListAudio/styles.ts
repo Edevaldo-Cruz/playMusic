@@ -1,5 +1,4 @@
 import styled from "styled-components/native";
-import myImage from "../../assets/images/classical.png";
 
 export const Container = styled.View``;
 
