@@ -1,4 +1,5 @@
 import React from "react";
+import { View } from "react-native";
 
 import { Container, ImgCard, ContainerCard, TitleCard } from "./styles";
 
@@ -32,7 +33,7 @@ const TopGenres: React.FC = () => {
   ];
 
   return (
-    <>
+    <View style={{ marginBottom: 60 }}>
       <TitleCard>Your top generes</TitleCard>
       <Container>
         <ImgCard source={card1} />
@@ -63,7 +64,7 @@ const TopGenres: React.FC = () => {
         <ImgCard source={card5} />
         <ImgCard source={card6} />
       </Container>
-    </>
+    </View>
   );
 };
 

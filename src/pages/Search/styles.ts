@@ -1,15 +1,12 @@
 import styled from "styled-components/native";
 
 export const Container = styled.View`
-  flex: 1;
   background-color: #121212;
-  padding-top: 90px;
-  margin-left: 15px;
-  margin-bottom: 30px;
 `;
 
 export const ContainerInput = styled.View`
   align-items: center;
+  margin-top: 8%;
 `;
 
 export const InputView = styled.TouchableOpacity`

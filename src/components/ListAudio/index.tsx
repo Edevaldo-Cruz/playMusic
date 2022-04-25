@@ -1,7 +1,8 @@
 import React, { useState, createRef } from "react";
 import ActionSheet from "react-native-actions-sheet";
-import { TouchableOpacity, Dimensions } from "react-native";
+import { TouchableOpacity, Dimensions, ScrollView } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { StatusBar } from "expo-status-bar";
 
 import { useAudio } from "../../hooks/audio";
 import {
@@ -9,7 +10,9 @@ import {
   Entypo,
   FontAwesome,
   MaterialIcons,
+  Feather,
 } from "@expo/vector-icons";
+
 import {
   Container,
   HeaderModal,
@@ -24,12 +27,16 @@ import {
   ContainerIcons,
   BtnPlayPause,
   ContainerImage,
+  ContainerIncosToShare,
+  Icons,
 } from "./styles";
 import ModalList from "../ModalList";
 
 const ListAudio: React.FC = ({ handleToggleList }) => {
   const { currentAudioInfo, isPlay, handleToggleAudio } = useAudio();
   const [like, setLike] = useState(false);
+  const [btnRandom, setBtnRadom] = useState(false);
+  const [btnRetweet, setBtnRetweet] = useState(false);
   const actionSheetRef = createRef();
 
   const handleToggleModalList = () => {
@@ -75,9 +82,12 @@ const ListAudio: React.FC = ({ handleToggleList }) => {
             />
           </TouchableOpacity>
         </InfoAudio>
+
         <ContainerIcons>
-          <TouchableOpacity>
-            <FontAwesome name="random" size={24} color="white" />
+          <TouchableOpacity onPress={() => setBtnRadom(!btnRandom)}>
+            {(btnRandom && (
+              <FontAwesome name="random" size={24} color="green" />
+            )) || <FontAwesome name="random" size={24} color="white" />}
           </TouchableOpacity>
           <TouchableOpacity onPress={handleToggleModalList}>
             <AntDesign name="stepbackward" size={24} color="white" />
@@ -92,10 +102,20 @@ const ListAudio: React.FC = ({ handleToggleList }) => {
           <TouchableOpacity onPress={handleToggleModalList}>
             <AntDesign name="stepforward" size={24} color="white" />
           </TouchableOpacity>
-          <TouchableOpacity>
-            <FontAwesome name="retweet" size={24} color="white" />
+          <TouchableOpacity onPress={() => setBtnRetweet(!btnRetweet)}>
+            {(btnRetweet && (
+              <FontAwesome name="retweet" size={24} color="green" />
+            )) || <FontAwesome name="retweet" size={24} color="white" />}
           </TouchableOpacity>
         </ContainerIcons>
+
+        <ContainerIncosToShare>
+          <Icons>
+            <MaterialIcons name="devices" size={18} color="white" />
+          </Icons>
+          <Feather name="share-2" size={18} color="white" />
+          <Entypo name="menu" size={18} color="white" />
+        </ContainerIncosToShare>
 
         <ActionSheet
           ref={actionSheetRef}

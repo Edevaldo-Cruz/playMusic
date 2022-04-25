@@ -1,15 +1,11 @@
-import React, { createRef, useState } from "react";
+import React, { createRef } from "react";
 import { StatusBar } from "expo-status-bar";
-import { ScrollView, Dimensions, View } from "react-native";
+import { ScrollView, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ActionSheet from "react-native-actions-sheet";
 import { LinearGradient } from "expo-linear-gradient";
-
-import { AudioProvider } from "../../hooks/audio";
 import { StandardTitle } from "./styles";
-
 import Header from "../../components/Header";
-import AudioPlayer from "../../components/AudioPlayer";
 import ListAudio from "../../components/ListAudio";
 import SuggestionCard from "../../components/SuggestionCard";
 import RecentlyPlayed from "../../components/RecentlyPlayed";
@@ -50,18 +46,14 @@ const Player: React.FC = () => {
           </SafeAreaView>
         </LinearGradient>
       </ScrollView>
-      <AudioProvider>
-        <AudioPlayer handleToggleList={handleToggleList} />
-        <ActionSheet
-          ref={actionSheetRef}
-          containerStyle={{
-            height: Dimensions.get("screen").height,
-            backgroundColor: "#121212",
-          }}
-        >
-          <ListAudio handleToggleList={handleToggleList} />
-        </ActionSheet>
-      </AudioProvider>
+      <ActionSheet
+        ref={actionSheetRef}
+        containerStyle={{
+          backgroundColor: "#121212",
+        }}
+      >
+        <ListAudio handleToggleList={handleToggleList} />
+      </ActionSheet>
     </View>
   );
 };

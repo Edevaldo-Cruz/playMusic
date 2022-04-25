@@ -20,7 +20,7 @@ function Tabs() {
           height: 60,
           paddingVertical: 20,
           paddingHorizontal: 35,
-          backgroundColor: "#050505c1",
+          backgroundColor: "#000000c9",
         },
         tabBarBackground: () => <BlurView intensity={10} tint="dark" />,
         tabBarActiveTintColor: "#FFFFFF",

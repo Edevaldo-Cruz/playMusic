@@ -32,7 +32,6 @@ export const TitleCard = styled.Text`
 export const ImgCard = styled.Image`
   width: 165px;
   height: 100px;
-
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px;
 `;
