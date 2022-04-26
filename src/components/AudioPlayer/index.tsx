@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { MaterialIcons, AntDesign } from "@expo/vector-icons";
-
 import {
   Container,
   ButtonAction,
@@ -12,7 +11,6 @@ import {
   Author,
 } from "./styles";
 import { useAudio } from "../../hooks/audio";
-import { View } from "react-native";
 
 const AudioPlayer: React.FC = ({ handleToggleList }) => {
   const [like, setLike] = useState(false);

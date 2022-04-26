@@ -1,6 +1,6 @@
 import React, { createRef } from "react";
 import { StatusBar } from "expo-status-bar";
-import { ScrollView, View } from "react-native";
+import { Dimensions, ScrollView, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ActionSheet from "react-native-actions-sheet";
 import { LinearGradient } from "expo-linear-gradient";
@@ -27,33 +27,31 @@ const Player: React.FC = () => {
           colors={["#3B14AF", "#121212"]}
           start={[0.092321, 0.02]}
           end={[0.4, 0.259]}
-          style={{ flex: 1 }}
         >
-          <StatusBar style="light" />
-          <SafeAreaView>
-            <Header handleToggleList={handleToggleList} />
-            <SuggestionCard />
-            <SuggestionPodcast />
-            <StandardTitle>Teste titulo</StandardTitle>
-            <RecentlyPlayed />
-            <StandardTitle>Teste titulo</StandardTitle>
-            <HitsOfYesterday />
-            <StandardTitle>Teste titulo</StandardTitle>
-            <RecentlyPlayed />
-            <StandardTitle>Teste titulo</StandardTitle>
-            <RecentlyPlayed />
-            <View style={{ width: "100%", height: 150 }} />
-          </SafeAreaView>
+          <Header handleToggleList={handleToggleList} />
+          <SuggestionCard />
+          <SuggestionPodcast />
+          <StandardTitle>Teste titulo</StandardTitle>
+          <RecentlyPlayed />
+          <StandardTitle>Teste titulo</StandardTitle>
+          <HitsOfYesterday />
+          <StandardTitle>Teste titulo</StandardTitle>
+          <RecentlyPlayed />
+          <StandardTitle>Teste titulo</StandardTitle>
+          <RecentlyPlayed />
+          <View style={{ width: "100%", height: 150 }} />
+
+          <ActionSheet
+            ref={actionSheetRef}
+            containerStyle={{
+              height: Dimensions.get("screen").height,
+              backgroundColor: "#121212",
+            }}
+          >
+            <ListAudio handleToggleList={handleToggleList} />
+          </ActionSheet>
         </LinearGradient>
       </ScrollView>
-      <ActionSheet
-        ref={actionSheetRef}
-        containerStyle={{
-          backgroundColor: "#121212",
-        }}
-      >
-        <ListAudio handleToggleList={handleToggleList} />
-      </ActionSheet>
     </View>
   );
 };

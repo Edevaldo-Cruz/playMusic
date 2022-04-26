@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   Container,
   ContainerImg,
@@ -7,7 +6,6 @@ import {
   ArtistsName,
   TextView,
 } from "./styles";
-
 import img1 from "../../assets/images/podcastContos.png";
 import img2 from "../../assets/images/podcastMathildas.png";
 import img3 from "../../assets/images/podcastprimoCast.png";

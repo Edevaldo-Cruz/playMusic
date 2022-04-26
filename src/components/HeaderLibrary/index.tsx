@@ -1,6 +1,5 @@
 import React from "react";
 import { Image, View } from "react-native";
-
 import { Entypo, AntDesign } from "@expo/vector-icons";
 import { Container, Title } from "./styles";
 

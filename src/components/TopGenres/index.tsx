@@ -1,7 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-
-import { Container, ImgCard, ContainerCard, TitleCard } from "./styles";
+import { Container, ImgCard, TitleCard } from "./styles";
 
 import card1 from "../../assets/images/genres1.png";
 import card2 from "../../assets/images/genres2.png";

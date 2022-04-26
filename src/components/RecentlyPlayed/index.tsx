@@ -1,8 +1,6 @@
-import React, { useEffect } from "react";
-
+import React from "react";
 import {
   Container,
-  Title,
   ContainerArtists,
   ContainerImg,
   ImgRecentlyPlayed,

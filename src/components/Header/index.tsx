@@ -1,7 +1,6 @@
 import React from "react";
 import { ToastAndroid } from "react-native";
 import { MaterialIcons, Ionicons, Feather } from "@expo/vector-icons";
-
 import { Button, Container, Salutation, ContainerBtn } from "./styles";
 
 const Header: React.FC = ({ handleToggleList }) => {

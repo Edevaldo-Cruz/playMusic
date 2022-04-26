@@ -1,9 +1,7 @@
 import React, { useState, createRef } from "react";
 import ActionSheet from "react-native-actions-sheet";
-import { TouchableOpacity, Dimensions, ScrollView } from "react-native";
+import { TouchableOpacity, Dimensions } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import { StatusBar } from "expo-status-bar";
-
 import { useAudio } from "../../hooks/audio";
 import {
   AntDesign,

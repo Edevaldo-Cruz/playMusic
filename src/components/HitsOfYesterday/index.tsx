@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   Container,
   ContainerArtists,
@@ -7,7 +6,6 @@ import {
   ImgRecentlyPlayed,
   ArtistsName,
 } from "./styles";
-
 import img1 from "../../assets/images/hits2006.png";
 import img2 from "../../assets/images/hits2009.png";
 import img3 from "../../assets/images/hits2010.png";

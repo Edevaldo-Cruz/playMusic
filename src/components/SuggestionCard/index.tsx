@@ -1,7 +1,5 @@
 import React from "react";
-
 import { Container, ImgCard, ContainerCard, TitleCard } from "./styles";
-
 import card1 from "../../assets/images/imgCard1.png";
 import card2 from "../../assets/images/imgCard2.png";
 import card3 from "../../assets/images/imgCard3.png";
