@@ -7,10 +7,9 @@ const AudioContext = createContext({});
 const AudioProvider: React.FC = ({ children }) => {
   const [currentAudio, setCurrentAudio] = useState(null);
   const [isPlay, setIsPlay] = useState(false);
-
   const [currentAudioInfo, setCurrentAudioInfo] = useState(null);
-
   const [playlist, setPlaylist] = useState([]);
+  const [position, setPosition] = useState(-1);
 
   const playSong = async (source, autoPlay = false) => {
     if (currentAudio) {
@@ -37,8 +36,24 @@ const AudioProvider: React.FC = ({ children }) => {
     } else {
       await currentAudio.playAsync();
     }
-
     setIsPlay((prev) => !prev);
+  };
+
+  const handleNext = async () => {
+    if (isPlay) {
+      await currentAudio.pauseAsync();
+      setPosition(position + 1);
+      setCurrentAudioInfo(playlist[position]);
+      setIsPlay(false);
+    } else {
+      setPosition(position + 1);
+      setCurrentAudioInfo(playlist[position]);
+    }
+  };
+
+  const handleBack = async () => {
+    setPosition(position - 1);
+    setCurrentAudioInfo(playlist[position]);
   };
 
   useEffect(() => {
@@ -63,6 +78,8 @@ const AudioProvider: React.FC = ({ children }) => {
         playSong,
         isPlay,
         currentAudio,
+        handleNext,
+        handleBack,
       }}
     >
       {children}

@@ -32,7 +32,13 @@ import ModalList from "../ModalList";
 import LottieView from "lottie-react-native";
 
 const ListAudio: React.FC = ({ handleToggleList }) => {
-  const { currentAudioInfo, isPlay, handleToggleAudio } = useAudio();
+  const {
+    currentAudioInfo,
+    isPlay,
+    handleToggleAudio,
+    handleNext,
+    handleBack,
+  } = useAudio();
   const [like, setLike] = useState(false);
   const firstRun = useRef(true);
   const animation = useRef(null);
@@ -110,7 +116,7 @@ const ListAudio: React.FC = ({ handleToggleList }) => {
               <FontAwesome name="random" size={24} color="green" />
             )) || <FontAwesome name="random" size={24} color="white" />}
           </TouchableOpacity>
-          <TouchableOpacity onPress={handleToggleModalList}>
+          <TouchableOpacity onPress={() => handleBack()}>
             <AntDesign name="stepbackward" size={24} color="white" />
           </TouchableOpacity>
           <BtnPlayPause primary onPress={handleToggleAudio}>
@@ -120,7 +126,7 @@ const ListAudio: React.FC = ({ handleToggleList }) => {
               color="black"
             />
           </BtnPlayPause>
-          <TouchableOpacity onPress={handleToggleModalList}>
+          <TouchableOpacity onPress={() => handleNext()}>
             <AntDesign name="stepforward" size={24} color="white" />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => setBtnRetweet(!btnRetweet)}>
