@@ -1,4 +1,4 @@
-import React, { useState, createRef } from "react";
+import React, { useState, createRef, useRef, useEffect } from "react";
 import ActionSheet from "react-native-actions-sheet";
 import { TouchableOpacity, Dimensions } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
@@ -29,10 +29,13 @@ import {
   Icons,
 } from "./styles";
 import ModalList from "../ModalList";
+import LottieView from "lottie-react-native";
 
 const ListAudio: React.FC = ({ handleToggleList }) => {
   const { currentAudioInfo, isPlay, handleToggleAudio } = useAudio();
   const [like, setLike] = useState(false);
+  const firstRun = useRef(true);
+  const animation = useRef(null);
   const [btnRandom, setBtnRadom] = useState(false);
   const [btnRetweet, setBtnRetweet] = useState(false);
   const actionSheetRef = createRef();
@@ -40,6 +43,23 @@ const ListAudio: React.FC = ({ handleToggleList }) => {
   const handleToggleModalList = () => {
     actionSheetRef.current?.setModalVisible();
   };
+
+  useEffect(() => {
+    if (currentAudioInfo) {
+      if (firstRun.current) {
+        if (like) {
+          animation.current.play(71, 71);
+        } else {
+          animation.current.play(2, 2);
+        }
+        firstRun.current = false;
+      } else if (like) {
+        animation.current.play(0, 70);
+      } else {
+        animation.current.play(71, 130);
+      }
+    }
+  }, [like]);
 
   return (
     <Container>
@@ -73,10 +93,13 @@ const ListAudio: React.FC = ({ handleToggleList }) => {
             <SubTitleAudio> {currentAudioInfo?.author || "    "}</SubTitleAudio>
           </ContainerTextInfo>
           <TouchableOpacity onPress={() => setLike(!like)}>
-            <AntDesign
-              name={like ? "heart" : "hearto"}
-              size={20}
-              color="white"
+            <LottieView
+              source={require("../../assets/icon/likeDislike.json")}
+              autoPlay={false}
+              loop={false}
+              style={{ with: 60, height: 60 }}
+              resizeMode="cover"
+              ref={animation}
             />
           </TouchableOpacity>
         </InfoAudio>
