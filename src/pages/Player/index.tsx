@@ -31,13 +31,13 @@ const Player: React.FC = () => {
           <Header handleToggleList={handleToggleList} />
           <SuggestionCard />
           <SuggestionPodcast />
-          <StandardTitle>Teste titulo</StandardTitle>
+          <StandardTitle>Feito para você</StandardTitle>
           <RecentlyPlayed />
-          <StandardTitle>Teste titulo</StandardTitle>
+          <StandardTitle>Hits do passado</StandardTitle>
           <HitsOfYesterday />
-          <StandardTitle>Teste titulo</StandardTitle>
+          <StandardTitle>Para acompanhar sua noite</StandardTitle>
           <RecentlyPlayed />
-          <StandardTitle>Teste titulo</StandardTitle>
+          <StandardTitle>Recomendado para hoje</StandardTitle>
           <RecentlyPlayed />
           <View style={{ width: "100%", height: 150 }} />
 

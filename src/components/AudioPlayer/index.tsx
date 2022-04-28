@@ -18,7 +18,7 @@ const AudioPlayer: React.FC = ({ handleToggleList }) => {
   const firstRun = useRef(true);
   const animation = useRef(null);
 
-  const { isPlay, handleToggleAudio, currentAudioInfo, playlist } = useAudio();
+  const { isPlay, handleToggleAudio, currentAudioInfo } = useAudio();
 
   useEffect(() => {
     if (currentAudioInfo) {

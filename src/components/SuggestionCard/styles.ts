@@ -19,7 +19,7 @@ export const ContainerCard = styled.TouchableOpacity`
 `;
 
 export const TitleCard = styled.Text`
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   color: #ffffff;
   width: 80%;

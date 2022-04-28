@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, ImgCard, ContainerCard, TitleCard } from "./styles";
-import card1 from "../../assets/images/imgCard1.png";
+import card1 from "../../assets/icon/likedSongs.png";
 import card2 from "../../assets/images/imgCard2.png";
 import card3 from "../../assets/images/imgCard3.png";
 import card4 from "../../assets/images/imgCard4.png";
@@ -11,7 +11,7 @@ const SuggestionCard: React.FC = () => {
   const card = [
     {
       img1: card1,
-      text1: "Top Hits Hindi",
+      text1: "Musicas Curtidas",
       img2: card2,
       text2: "Arijit singh",
     },
