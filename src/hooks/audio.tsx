@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { Audio } from "expo-av";
 import api from "../services/api";
-import { Alert, ToastAndroid } from "react-native";
+import { ToastAndroid } from "react-native";
 
 const AudioContext = createContext({});
 
@@ -51,57 +51,52 @@ const AudioProvider: React.FC = ({ children }) => {
    */
 
   const handleNext = async () => {
+    setPosition(position + 1);
+    setCurrentAudioInfo(await playlist[position]);
+    const { sound } = await Audio.Sound.createAsync({
+      uri: playlist[position].uri,
+    });
+    setCurrentAudio(sound);
     if (isPlay === false) {
-      setPosition(position + 1);
-      setCurrentAudioInfo(playlist[position]);
-      const { sound } = await Audio.Sound.createAsync({
-        uri: playlist[position + 1].uri,
-      });
-
-      setCurrentAudio(sound);
       ToastAndroid.showWithGravity(
-        "Primeiro",
+        `Primeiro do Next ${playlist[position].id}`,
         ToastAndroid.SHORT,
         ToastAndroid.CENTER
       );
     } else {
-      setPosition(0);
-      setCurrentAudioInfo(playlist[position]);
-      const { sound } = await Audio.Sound.createAsync({
-        uri: playlist[position + 1].uri,
-      });
-      await playlist[position + 1].stopAsync();
-      await playlist[position + 1].playAsync();
+      await currentAudio.stopAsync();
       ToastAndroid.showWithGravity(
-        "segundo",
+        `Segundo do Next ${playlist[position].id}`,
         ToastAndroid.SHORT,
         ToastAndroid.CENTER
       );
-    }
 
-    setCurrentAudio(sound);
+      await sound.playAsync();
+    }
   };
 
   const handleBack = async () => {
-    if (playlist[position]) {
-      setPosition(position - 1);
-      setCurrentAudioInfo(playlist[position]);
-
-      const { sound } = await Audio.Sound.createAsync({
-        uri: playlist[position].uri,
-      });
-
-      setCurrentAudio(sound);
-    } else {
-      setPosition(0);
-      setCurrentAudioInfo(playlist[position]);
-
-      const { sound } = await Audio.Sound.createAsync({
-        uri: currentAudioInfo.uri,
-      });
-    }
-
+    setPosition(position - 1);
+    setCurrentAudioInfo(await playlist[position]);
+    const { sound } = await Audio.Sound.createAsync({
+      uri: playlist[position].uri,
+    });
     setCurrentAudio(sound);
+    if (isPlay === false) {
+      ToastAndroid.showWithGravity(
+        `Primeiro do back ${playlist[position].id}`,
+        ToastAndroid.SHORT,
+        ToastAndroid.CENTER
+      );
+    } else {
+      await currentAudio.stopAsync();
+      ToastAndroid.showWithGravity(
+        `Segundo do back ${playlist[position].id}`,
+        ToastAndroid.SHORT,
+        ToastAndroid.CENTER
+      );
+      await sound.playAsync();
+    }
   };
 
   useEffect(() => {
